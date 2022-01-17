@@ -8,7 +8,9 @@ ___
 
 ### Comandos en modo supervisor
 - `show run` - ver configuracion del router
-- `show interfacse` - ver configuracion de las interfaces
+- `show interfaces` - ver configuracion de las interfaces
+- `show port-security <interfaz>` - ver información de seguridad
+- `show vlan` - ver información sobre las VLANs
 - `config t` - entrar a modo de configuración
 ___
 
@@ -26,6 +28,9 @@ ___
 - `shut` - desactivar el puerto
 - `no shut` - reactivar el puerto
 - `end` - graba y sale del modo configuración
+
+###### Configurar Port-Security
+- `interface <if>` - entrar a la configuración del puerto
 - `switchport mode access` - cambia a modo acceso (para dispositivos)
 - `switchport port-security` - activa la seguridad
 - `switchport port-security maximun X` - maximo de dispositivos
@@ -34,3 +39,14 @@ ___
 	- `restrict` - además manda una alerta de seguridad
 	- `shutdown` - desactiva el puerto
 - `switchport port-security mac-address sticky` - las primeras `maximun` [[MAC Address|MAC]]s  
+- `exit` - salir de la configuración
+
+###### Configurar VLANs
+- `vlan <numero>` - configurar la vlan `numero`
+- `no vlan <numero>` - borrar la vlan `numero`
+- `name <nombre>` - cambiar nombre a la vlan
+- `exit` - salir de la configuración de vlan
+- `interface <if/if-range>` - entrar a la configuración del puerto/s
+- `switchport mode access` - poner el puerto en modo acceso
+- `switchport access vlan <numero>` - asignar el puerto a la vlan `numero`
+- `switchport mode trunk` - pone un puerto en modo troncal para pasar las VLANs
