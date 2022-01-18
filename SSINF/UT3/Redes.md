@@ -67,4 +67,4 @@ ___
 
 Un `Hub` simplemente replica lo que recibe por todas las salidas, mientras que un `Switch` "aprende" en que salidas se situan los diversos dispositivos mediante las [[MAC Address|direcciones MAC]]. Esto se parece al protocolo [[ARP]], pero ARP trabaja con [[IP Address|direcciones IP]].
 
-Para conectar swiches/hubs entre si, o switch/hub con con un router/ordenador se usa cable "recto", mientras que para conectar ordenadores/routers se usa cable "cruzado".
+Para conectar swiches/hubs entre si, o switch/hub con un router/ordenador se usa cable "recto", mientras que para conectar ordenadores/routers se usa cable "cruzado".
