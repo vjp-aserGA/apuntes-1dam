@@ -50,3 +50,14 @@ ___
 - `switchport mode access` - poner el puerto en modo acceso
 - `switchport access vlan <numero>` - asignar el puerto a la vlan `numero`
 - `switchport mode trunk` - pone un puerto en modo troncal para pasar las VLANs
+
+# Router
+###### Cofigurar ROuter para comunicar VLANs
+- `enable` - entrar a modo modo supervisor
+- `vlan database` - configurar las VLANs (deprecado)
+- `config t` - modo de configuracion
+- `interface <ifX/Y.VLANid>` - crear sub-interfaz para la VLAN
+- `encapsulation dot1q <vlan>` - asigna la VLAN a esta subinterfaz
+- `ip address <ip_addr> <ip_mask>` - asignar IP para el puerto virtual
+- `interface <ifX/Y>` - configurar la interzfaz "real"
+- `no shut` - encender la interfaz fisica en la que está conectado el cable
