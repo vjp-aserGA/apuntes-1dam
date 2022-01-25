@@ -52,7 +52,7 @@ ___
 - `switchport mode trunk` - pone un puerto en modo troncal para pasar las VLANs
 
 # Router
-###### Cofigurar ROuter para comunicar VLANs
+###### Configurar router para comunicar VLANs
 - `enable` - entrar a modo modo supervisor
 - `vlan database` - configurar las VLANs (deprecado)
 - `config t` - modo de configuracion
@@ -61,3 +61,10 @@ ___
 - `ip address <ip_addr> <ip_mask>` - asignar IP para el puerto virtual
 - `interface <ifX/Y>` - configurar la interzfaz "real"
 - `no shut` - encender la interfaz fisica en la que está conectado el cable
+
+###### Configurar router para comunicar redes
+- Protocolo RIP:
+	- `enable`
+	- `config t`
+	- `router rip` - configurar el protocolo rip
+	- `network <network_ip>` - añadir las redes a las que este router está conectado 
