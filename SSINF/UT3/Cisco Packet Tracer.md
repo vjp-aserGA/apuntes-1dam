@@ -68,3 +68,28 @@ ___
 	- `config t`
 	- `router rip` - configurar el protocolo rip
 	- `network <network_ip>` - añadir las redes a las que este router está conectado 
+
+
+
+# Subnetting
+Las máscaras no son más que sequencias de bits, empiezan con unos y acaban con ceros: `xxxxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx`
+
+Las máscaras de red determinan la capacidad de una red, más específicamente, la cantidad de ceros determina la capacidad.
+
+Las mascaras de red más comunes son:
+- Tipo A: `255.0.0.0`
+- Tipo B: `255.255.0.0`
+- Tipo C: `255.255.255.0`
+
+Esto está muy bien, pero en muchos casos no necesitamos "espacio" para tantas IP.
+
+Ya que los ceros determinan la capacidad; podemos crear máscaras de red con la capacidad que necesitemos. El mínimo de "capacidad" permitida es `4`. Es decir, una máscara: `11111111.11111111.11111111.11111100` o `255.255.255.252`.
+
+- `Binario` - `Decimal` - `Max Direcciones` - `Max Dispositivos`
+- `00000000` - `0` - `256` - `254`
+- `10000000` - `128` - `128` - ``
+- `11000000` - `192` - `64`
+- `11100000` - `224` - `32`
+- `11110000` - `240` - `16`
+- `11111000` - `248` - `8`
+- `11111100` - `252` - `4`
