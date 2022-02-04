@@ -50,6 +50,7 @@ ___
 - `switchport mode access` - poner el puerto en modo acceso
 - `switchport access vlan <numero>` - asignar el puerto a la vlan `numero`
 - `switchport mode trunk` - pone un puerto en modo troncal para pasar las VLANs
+---
 
 # Router
 ###### Configurar router para comunicar VLANs
@@ -62,14 +63,20 @@ ___
 - `interface <ifX/Y>` - configurar la interzfaz "real"
 - `no shut` - encender la interfaz fisica en la que está conectado el cable
 
-###### Configurar router para comunicar redes
+###### Configurar router para comunicar redes (RIP)
 - Protocolo RIP:
 	- `enable`
 	- `config t`
 	- `router rip` - configurar el protocolo rip
 	- `network <network_ip>` - añadir las redes a las que este router está conectado 
-
-
+- Protocolo RIP V2:
+	- `enable`
+	- `config t`
+	- `router rip` - configurar el protocolo rip
+	- `version 2`
+	- `network <network_ip>` - añadir las redes a las que este router está conectado 
+	- `no auto`
+---
 
 # Subnetting
 Las máscaras no son más que sequencias de bits, empiezan con unos y acaban con ceros: `xxxxxxxx.xxxxxxxx.xxxxxxxx.xxxxxxxx`
@@ -85,11 +92,31 @@ Esto está muy bien, pero en muchos casos no necesitamos "espacio" para tantas I
 
 Ya que los ceros determinan la capacidad; podemos crear máscaras de red con la capacidad que necesitemos. El mínimo de "capacidad" permitida es `4`. Es decir, una máscara: `11111111.11111111.11111111.11111100` o `255.255.255.252`.
 
-- `Binario` - `Decimal` - `Max Direcciones` - `Max Dispositivos`
-- `00000000` - `0` - `256` - `254`
-- `10000000` - `128` - `128` - ``
-- `11000000` - `192` - `64`
-- `11100000` - `224` - `32`
-- `11110000` - `240` - `16`
-- `11111000` - `248` - `8`
-- `11111100` - `252` - `4`
+Tabla de subredes:
+```c
+   Bin   | Dec | Max Dir | 
+00000000 |  0  |   256   |
+10000000 | 128 |   128   |
+11000000 | 192 |    64   |
+11100000 | 224 |    32   |
+11110000 | 240 |    16   |
+11111000 | 248 |    8    |
+11111100 | 252 |    4    |
+```
+
+
+###### Partir red de tipo C: 192.168.0.0 - 255.255.255.0
+###### Partirla en 4 redes iguales (255.255.255.192)
+- IP Red - IP 1º Equipo - IP Ultimo Equipo - IP Broadcast 
+- 192.168.0.0    -      0.1 -   0.62 - 0.63 
+- 192.168.0.64  -   0.65 - 0.126 - 0.127
+- 192.168.0.128 - 0.129 - 0.190 - 0.191
+- 192.168.0.192 - 0.193 - 0.254 - 0.255
+
+###### Partir red de tipo C: 192.168.20.0 - 255.255.255.0
+###### 2 de 64 - 1 de 32 - 2 de 8
+- 192.168.20.0    -    20.1 -   20.62 - 20.63 - 255.255.255.192
+- 192.168.20.64  - 20.65 - 20.126 - 20.127 - 255.255.255.192
+- 192.168.20.128 - 20.129 - 20.158 - 20.159 - 255.255.255.224
+- 192.168.20.160 - 20.161 - 20.166 - 20.167 - 255.255.255.248
+- 192.168.20.168 - 20.169 - 20.174 - 20.175 - 255.255.255.248
