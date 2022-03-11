@@ -74,9 +74,9 @@ Para conectar swiches/hubs entre si, o switch/hub con un router/ordenador se usa
 ---
 Rangos de Redes
 ```c
-    Comienzo - Rango     - Rango Privado
-A - 0_______ - 0 - 127   - 10.__.__.__
-B - 01______ - 128 - 191 - 172.[16-31].__.__
-C - 011_____ - 192 - 223 -
-D - 0111____ - 
+  | Comienzo |   Rango   | Rango Privado
+A | 0_______ |  0  - 127 | 10.___.___.___
+B | 10______ | 128 - 191 | 172.[16-31].___.___
+C | 110_____ | 192 - 223 | 192.168.___.___
+D | 1110____ | 224 - 239 | 
 ```
